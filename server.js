@@ -46,5 +46,7 @@ app.use('/api',ApiRoutes)
 
 import './jobs/index.js'
 
+
+// just checking git 
 app.listen(PORT,()=>console.log(`server is running on port ${PORT}`))
 
