@@ -23,7 +23,9 @@ app.use(helmet()) // The helmet package in Express is a middleware that helps se
     Set Referrer Policy – to control what referrer info is sent.
 
 */
-app.use(cors())
+app.use(cors({
+    origin : '*'
+}))
 // app.use(limiter) // Rate limiting middleware to limit the number of requests from a single IP address
 
 app.get('/',(req,res)=>{
