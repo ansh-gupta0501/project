@@ -16,6 +16,7 @@
     "@vinejs/vine": "^3.0.1",
     "bcryptjs": "^3.0.2",
     "bullmq": "^5.56.4",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.1.0",
     "express": "^5.1.0",

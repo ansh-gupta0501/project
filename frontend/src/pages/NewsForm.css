@@ -1,0 +1,93 @@
+.news-form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.news-form-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #222;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.news-form-container form > div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-form-container label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+  font-size: 16px;
+}
+
+.news-form-container input[type="text"],
+.news-form-container textarea,
+.news-form-container input[type="file"] {
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #ccc;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.news-form-container input[type="text"]:focus,
+.news-form-container textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.news-form-container textarea {
+  min-height: 120px;
+}
+
+.news-form-container img {
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.news-form-container button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.news-form-container button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 480px) {
+  .news-form-container {
+    margin: 20px 15px;
+    padding: 25px 20px;
+  }
+
+  .news-form-container h1 {
+    font-size: 24px;
+  }
+
+  .news-form-container button {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+}

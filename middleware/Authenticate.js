@@ -1,14 +1,21 @@
 import jwt from 'jsonwebtoken'
 
 const authMiddleware = (req,res,next) =>{
-    const authHeader = req.headers.authorization
-
+    console.log("cookei",req.cookies?.access_token)
+    const authHeader = req.cookies?.access_token || req.headers.authorization
+    console.log("authheader is ",authHeader)
     if(authHeader === null || authHeader === undefined){
         return res.status(401).json({message : "Unauthorized"})
     }
 
-    const token = authHeader.split(" ")[1]
-
+    let token;
+    if (authHeader.startsWith("Bearer ")) {
+    token = authHeader.split(" ")[1];
+    } else {
+    // authHeader is raw token (from cookie)
+    token = authHeader;
+    }
+    console.log("token is ",token)
     //verify token 
 
     jwt.verify(token , process.env.JWT_SECRET,(err,user)=>{

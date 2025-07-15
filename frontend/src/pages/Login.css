@@ -1,0 +1,73 @@
+/* Container fills the screen and centers the form */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6; /* Tailwind's gray-100 */
+  padding: 1rem;
+}
+
+/* The form box */
+.login-form {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+/* Heading */
+.login-form h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111827; /* Tailwind gray-900 */
+}
+
+/* Input fields */
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db; /* Tailwind gray-300 */
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+  outline: none;
+  border-color: #2563eb; /* Tailwind blue-600 */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* blue glow */
+}
+
+/* Error message */
+.error-message {
+  color: #ef4444; /* Tailwind red-500 */
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Submit button */
+.login-form button {
+  width: 100%;
+  background-color: #2563eb; /* blue-600 */
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #1d4ed8; /* blue-700 */
+}

@@ -1,0 +1,118 @@
+.news-view-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.news-view-container h2 {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.news-view-container img.main-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.news-view-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.news-view-container .author-info {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  gap: 15px;
+}
+
+.news-view-container .author-info img.profile-pic {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.news-view-container .author-info span {
+  font-weight: 600;
+  font-size: 18px;
+  color: #333;
+}
+
+.news-view-container .actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.news-view-container .actions a,
+.news-view-container .actions button {
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+}
+
+.news-view-container .actions a {
+  background-color: #007bff;
+  color: white;
+}
+
+.news-view-container .actions a:hover {
+  background-color: #0056b3;
+}
+
+.news-view-container .actions button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.news-view-container .actions button:hover {
+  background-color: #a71d2a;
+}
+
+@media (max-width: 600px) {
+  .news-view-container {
+    margin: 20px 15px;
+    padding: 25px 20px;
+  }
+
+  .news-view-container h2 {
+    font-size: 26px;
+  }
+
+  .news-view-container p {
+    font-size: 16px;
+  }
+
+  .news-view-container .author-info img.profile-pic {
+    width: 50px;
+    height: 50px;
+  }
+
+  .news-view-container .author-info span {
+    font-size: 16px;
+  }
+}

@@ -7,11 +7,13 @@ import helmet from 'helmet'
 import cors from 'cors'
 import logger from "./config/logger.js"
 import { limiter } from "./config/ratelimiter.js"
+import cookieParser from "cookie-parser"
 // Middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(fileUpload()) 
 app.use(express.static("public")) 
+app.use(cookieParser())
 app.use(helmet()) // The helmet package in Express is a middleware that helps secure your Express apps by setting various HTTP headers to protect against well-known web vulnerabilities. This adds a collection of security-related HTTP headers to your responses.
 /*
     Key Uses of helmet:
@@ -24,7 +26,8 @@ app.use(helmet()) // The helmet package in Express is a middleware that helps se
 
 */
 app.use(cors({
-    origin : '*'
+    origin : 'http://localhost:5173',
+    credentials: true,
 }))
 // app.use(limiter) // Rate limiting middleware to limit the number of requests from a single IP address
 
@@ -47,6 +50,5 @@ app.use('/api',ApiRoutes)
 import './jobs/index.js'
 
 
-// just checking git 
 app.listen(PORT,()=>console.log(`server is running on port ${PORT}`))
 

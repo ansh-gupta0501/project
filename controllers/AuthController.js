@@ -7,6 +7,10 @@ import { sendEmail } from '../config/mailer.js';
 import logger from '../config/logger.js';
 import { emailQueue, emailQueueName } from '../jobs/SendEmailJob.js';
 class AuthController{
+
+   
+
+
     static async register(req,res){
         try {
             const body = req.body;
@@ -32,7 +36,32 @@ class AuthController{
             //adding data to database
             const user = await prisma.users.create({data: payload})
 
-            return res.status(200).json({message: "User created successfuly ",user})
+            const cookieOptions = {
+                httpOnly: true,
+                sameSite: 'Lax',  // better for localhost testing
+                secure: false,    // MUST be false if not HTTPS (localhost)
+                maxAge: 365 * 24 * 60 * 60 * 1000,
+            };
+
+            const payloadData = {
+                id: user.id,
+                email: user.email,
+                name: user.name,
+                profile: user.profile
+            };
+
+            // Generate token
+            const token = jwt.sign(payloadData, process.env.JWT_SECRET, {
+                 expiresIn: "365d"
+            });
+
+            res.cookie('access_token', token, cookieOptions);
+
+
+             return res.status(200).json({
+                message: "User created successfully",
+                user
+            });
         } catch (error) {
             if(error instanceof errors.E_VALIDATION_ERROR){
                 // console.log(error.messages)
@@ -80,8 +109,16 @@ class AuthController{
                     expiresIn : "365d"
                 })
 
+                const cookieOptions = {
+                    httpOnly: true,
+                    sameSite: 'Lax',  // better for localhost testing
+                    secure: false,    // MUST be false if not HTTPS (localhost)
+                    maxAge: 365 * 24 * 60 * 60 * 1000,
+                };
+                
+                res.cookie('access_token', token, cookieOptions);
 
-                return res.json({message : "Logged in ",access_token:`Bearer ${token}` })
+                return res.json({message : "Logged in ",user: findUser })
             }
 
 
@@ -98,6 +135,18 @@ class AuthController{
                 return res.status(500).json({message: "Something went wrong.Please try again "})
             }
         }
+    }
+
+
+    static logout(req, res) {
+        const cookieOptions = {
+            httpOnly: true,
+            sameSite: 'Lax',  // better for localhost testing
+            secure: false,    // MUST be false if not HTTPS (localhost)
+            maxAge: 365 * 24 * 60 * 60 * 1000,
+        };
+        res.clearCookie('access_token', cookieOptions);
+        return res.json({ message: 'Logged out successfully' });
     }
 
 
