@@ -87,7 +87,7 @@ class NewsController {
          const validator = vine.compile(newsSchema)
          const payload = await validator.validate(body)
 
-         if(!req.files || Object.keys(req.files).length === 0){
+        if(!req.files || Object.keys(req.files).length === 0){
             return res.status(400).json({errors : {
                 image : "Image field is required "
             }})
